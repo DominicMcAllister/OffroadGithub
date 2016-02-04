@@ -1,0 +1,23 @@
+<div>
+  <div>
+    <a href="#/user/{{username}}">Back to {{username}}</a>
+  </div>
+  
+  <div>Username: {{username}}</div>
+  <div>Repository: {{reponame}}</div>
+  <div>Open Issues: {{repo.open_issues}}</div>
+  <div>Forks: {{repo.forks}}</div>
+  <div>Watchers: {{repo.watchers}}</div>
+  <div>Open Issues: {{repo.open_issues_count}}</div>
+
+  Contributors: {{repo.contributors.length}}
+  <ul>
+    <li ng-repeat="cont in repo.contributors | orderBy:'-cont.contributions'">
+      <div>
+        <img height=100 width=100 ng-src="{{cont.avatar_url}}">
+      </div>
+      <div>{{cont.login}} (ID: {{cont.id}})</div>
+      <div>Contributions: {{cont.contributions | number}}</div>
+    </li>
+  </ul>
+</div>
